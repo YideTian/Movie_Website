@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="./docs.css">
+    <link rel="stylesheet" href="./TedDemo.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="reflex.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {{
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        }});
+
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', '.movie_list', function (event) {{
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {{
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }}));
+        }});
+        // Animate in the movies when the page loads
+        $(document).ready(function () {{
+          $('.movie-tile').hide().first().show("fast", function showNext() {{
+            $(this).next("div").show("fast", showNext);
+          }});
+        }});
+    </script>
+    <style>
+        body{{
+            background: url(image/background2.jpg) ;
+        }}
+
+    </style>
+</head>
+<body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Page Content -->
+    <!--logo and label-->
+    <header class="navbar navbar-inverse navbar-fixed-top" id="top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="bs-docs-header bs-docs-masthead ted-headbar">
+        <div class = "container-fluid">
+            <h1>My Movie Library</h1>
+        </div>
+	</div>
+    <div class="container-fluid">
+	    <div class="row movie-title">
+	    	<div class="col-md-12">
+	    		<blockquote>
+	    			<p>
+	    				This is my favourite movie! You can click to see the details.
+	    			</p>
+	    		</blockquote>
+       		</div>
+       	</div>
+    </div>
+
+    <div class="container-fluid">
+    </div>>
+    <div class="container-fluid">
+	    <div class="col-md-9" role="main">
+	        <h2>{movie_tiles}</h2>
+        </div>
+	    <div class="col-md-3" role="complementary">
+	        <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top " >
+	    	    <ul class="nav bs-docs-sidenav movie-nav-title bs-docs-masthead">
+                    <li>  Movie List</li>
+	    	    </ul>
+            </nav>
+
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" >
+                {movie_list}
+            </nav>
+       	</div>
+    </div>
+
+    <footer class="bs-docs-footer">
+      <div class="container-fluid">
+          <p> Udacity Final Project</p>
+      </div>
+    </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+
+.movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+
+        }
+.movie-title{
+	font-family: Helvetica;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 70%;
+    color: white;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.movie-nav{
+    background-color: #E6E6FA;
+	padding: 10px 30px;
+	border-radius: 5px;
+}
+.movie-nav-title{
+    font-size: 150%;
+    font-family: Helvetica;
+	font-style: italic;
+	font-weight: bold;
+    background-color: #9370DB;
+    text-shadow:0 3px 0 rgba(0,0,0,.1);
+	color: white;
+	padding: 10px 30px;
+	border-radius: 5px;
+}
+.ted-headbar{
+    color: #cdbfe3;
+    background-color: #6f5499;
+    text-shadow:0 3px 0 rgba(0,0,0,.1);
+}
+.topic-catalog {
+	text-align: center;
+	color: #33bebe;
+}
+
+.topic-heading{
+	font-family: Helvetica;
+	font-style: italic;
+	font-weight: bold;
+	color: white;
+}
+
+.topic-content {
+	box-sizing: border-box;
+/*	word-wrap: break-word;*/
+	text-indent: 3%;
+	background-color: #33bebe;
+	border-radius: 30px;
+	color: white;
+	padding: 10px 30px;
+}
+
+.cata-style{
+	background-color: white;
+	color: #33bebe;
+	font-family:cursive;
+	font-size: 200%;
+}
+.cont-style {
+	box-sizing: border-box;
+	word-wrap: break-word;
+	text-indent: 4%;
+	background-color: #33bebe;
+	border-radius: 30px;
+	color: white;
+	padding: 10px 30px;
+}
+
+
+
+.label{
+	font-style: italic;
+	font-weight: bold;
+	color: black;
+}
+
+.pic-city{
+	height: 190px;
+	width: 210px;
+	display: flex;
+
+}
