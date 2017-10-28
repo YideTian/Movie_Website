@@ -22,12 +22,15 @@ movie_list_content = '''
 '''
 
 def create_movie_tiles_content(movies):
-    # The HTML content for this section of the page
+    """The HTML content for this section of the page, identified the movie id from the imdb source """
+
     content = ''
     for movie in movies:
         # Extract the youtube ID from the url
         youtube_id_match = re.search(
-            r'(?<=vi=)[^&#]+', movie.trailer_url)
+            r'(?<=vi)[0-9]+', movie.trailer_url)
+        #Modified: 20171027 Change the regular expression to math the imdb trailer_url.
+        #Also changed the <iframe> block of the Template.html
         youtube_id_match = youtube_id_match or re.search(
             r'(?<=be/)[^&#]+', movie.trailer_url)
         trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
@@ -43,7 +46,7 @@ def create_movie_tiles_content(movies):
 
 
 def create_movie_list_content(movies):
-    # The HTML content for this section of the page
+    """The HTML content for this section of the page"""
     content = ''
     for movie in movies:
         content += movie_list_content.format(
@@ -53,7 +56,7 @@ def create_movie_list_content(movies):
 
 
 def open_movies_page(movies):
-    # Create or overwrite the output file
+    """Create or overwrite the output file"""
 
     output_file = open('fresh_tomatoes.html', 'w')
     html_file = open('Template.html', 'r').read()

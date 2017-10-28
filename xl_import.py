@@ -12,6 +12,7 @@ import xlrd
 
 
 def movie_load():
+    """Load the movie data from the outside Excel file"""
     xlpath = sys.path[0] + '\Movie_Library.xlsx'
     xldata = xlrd.open_workbook(xlpath)
     movie_xlsx = xldata.sheet_by_name('Sheet1')

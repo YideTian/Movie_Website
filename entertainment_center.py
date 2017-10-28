@@ -4,12 +4,10 @@ import media
 import fresh_tomatoes
 import xl_import
 
+#the movie data is loaded form the Excel file
 movie_data = xl_import.movie_load()
-# print movie_data
-# print len(movie_data)
-# print movie_data[1]
-# print movie_data[1]['title']
 
+#formatting the movie data into the MEDIA class format
 movie = {}
 for i in range(1, len(movie_data)+1):
     movie[i] = media.Movie(movie_data[i]['title'],
